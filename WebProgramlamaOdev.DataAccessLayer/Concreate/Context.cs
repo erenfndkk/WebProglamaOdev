@@ -17,7 +17,6 @@ namespace WebProgramlamaOdev.DataAccessLayer.Concreate
             optionsBuilder.UseSqlServer("server=ERMISH\\SQLEXPRESS01;initial catalog=OdevDb;integrated security=true");
         }
         public DbSet<AnaBilimDali> AnaBilimDalis { get; set; }
-        public DbSet<ContactUs> ContactUss { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
