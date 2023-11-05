@@ -1,6 +1,27 @@
+using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using WebProgramlamaOdev.BusinessLayer.Abstract;
+using WebProgramlamaOdev.BusinessLayer.Concreate;
+using WebProgramlamaOdev.DataAccessLayer.Abstract;
+using WebProgramlamaOdev.DataAccessLayer.Concreate;
+using WebProgramlamaOdev.DataAccessLayer.EntityFramework;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<Context>();
+
+builder.Services.AddScoped<IDepartmentDal, EfDepartmentDal>();
+builder.Services.AddScoped<IDepartmentService, DepartmentManager>();
+
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+
+builder.Services.AddScoped<IHomeDal, EfHomeDal>();
+builder.Services.AddScoped<IHomeService, HomeManager>();
+
+builder.Services.AddScoped<IDoctorDal, EfDoctorDal>();
+builder.Services.AddScoped<IDoctorService, DoctorManager>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

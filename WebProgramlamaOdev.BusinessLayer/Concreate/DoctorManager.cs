@@ -12,6 +12,12 @@ namespace WebProgramlamaOdev.BusinessLayer.Concreate
     public class DoctorManager : IDoctorService
     {
         private readonly IDoctorDal _doctorDal;
+
+        public DoctorManager(IDoctorDal doctorDal)
+        {
+            _doctorDal = doctorDal;
+        }
+
         public void TDelete(Doctor t)
         {
             _doctorDal.Delete(t);
