@@ -5,10 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WebProgramlamaOdev.EntityLayer.Concreate;
 
-namespace WebProgramlamaOdev.DataAccessLayer.Abstract
+namespace WebProgramlamaOdev.BusinessLayer.Abstract
 {
-    public interface IDoctorDal : IGenericDal<Doctor>
+    public interface IDepartmentService: IGenericService<Department>
     {
     }
 }
-    
