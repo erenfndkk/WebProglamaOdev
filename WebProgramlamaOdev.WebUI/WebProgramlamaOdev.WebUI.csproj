@@ -96,9 +96,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WebProgramlamaOdev.BusinessLayer\WebProgramlamaOdev.BusinessLayer.csproj" />
-    <ProjectReference Include="..\WebProgramlamaOdev.DataAccessLayer\WebProgramlamaOdev.DataAccessLayer.csproj" />
-    <ProjectReference Include="..\WebProgramlamaOdev.EntityLayer\WebProgramlamaOdev.EntityLayer.csproj" />
+    <ProjectReference Include="..\WebProgramlamaOdev.WebApi\WebProgramlamaOdev.WebApi.csproj" />
   </ItemGroup>
 
 </Project>

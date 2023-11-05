@@ -1,0 +1,31 @@
+Api consume ile
+-----------------------------
+Ana bilim dalý tablosu olcak
+
+Çocuk Cerrahi Anabilim Dalý
+Genel Cerrahi Anabilim Dalý
+Göðüs Cerrahisi Anabilim Dalý
+Göz Hastalýklarý Anabilim Dalý
+Acil Týp Anabilim Dalý
+Adli Týp Anabilim Dalý
+Aile Hekimliði Anabilim Dalý
+------------------------------
+poliklinik tablosu olcak
+
+------------------------------
+Doktor tablosu olcak
+
+------------------------------
+hasta tablosu olucak
+
+------------------------------
+Admin (Sekreter) tablosu olucak
+
+------------------------------
+doktor çalýþma saatleri tablosu olcak
+->gün ve saatler olacak
+
+------------------------------
+Randevu tablosu olcak
+-> Kayýtlý kulllanýcýlar yani hastalar istedikleri tarihe uygun doktor ve klinik seçip randevu alýcak.
+bool tipinde deðiþken tanýmla true olanlar listelensin yada listelenmesin

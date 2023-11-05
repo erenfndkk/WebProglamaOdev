@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WebProgramlamaOdev.EntityLayer.Concreate
 {
-    public class Testimonial
+    public class AnaBilimDali
     {
         [Key]
-        public int TestimonialID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public int AnaBilimDaliId { get; set; }
+        public string AnaBilimDaliAd { get; set; }
     }
-}
+}   

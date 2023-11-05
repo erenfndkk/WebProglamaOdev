@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace WebProgramlamaOdev.EntityLayer.Concreate
 {
-    public class Testimonial
+    public class Klinik
     {
         [Key]
-        public int TestimonialID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public int KlinikID { get; set; }
+        public string KlinikAd { get; set; }
     }
 }
