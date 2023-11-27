@@ -19,9 +19,6 @@ builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<IHomeDal, EfHomeDal>();
 builder.Services.AddScoped<IHomeService, HomeManager>();
 
-builder.Services.AddScoped<IDoctorDal, EfDoctorDal>();
-builder.Services.AddScoped<IDoctorService, DoctorManager>();
-
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -20,12 +20,18 @@ hasta tablosu olucak
 
 ------------------------------
 Admin (Sekreter) tablosu olucak
+-> Doktorla ilgili ekle sil güncelle iþlemlerini admin yapýcak.
+-> Ana bilim dalý tablosuyla ilgili iþlemleri sekreter yapýcak.
+-> Poliklinik tablosuyla ilgili iþlemleri sekreter yapýcak.
+-> Randevu tablosu ilgili iþlemleri sekreter yapýcak.
 
 ------------------------------
 doktor çalýþma saatleri tablosu olcak
-->gün ve saatler olacak
+-> Gün ve saatler olacak.
+-> bu tablodaki iþlemler admin tarafýndan kontrol edilecek.
 
 ------------------------------
 Randevu tablosu olcak
 -> Kayýtlý kulllanýcýlar yani hastalar istedikleri tarihe uygun doktor ve klinik seçip randevu alýcak.
+-> Randevu alýnýrken doktorun anabilim dalý da göz önünde bulundurulacak.
 bool tipinde deðiþken tanýmla true olanlar listelensin yada listelenmesin

@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WebProgramlamaOdev.EntityLayer.Concreate
 {
-    public class Klinik
+    public class Poliklinik
     {
-        [Key]
-        public int KlinikID { get; set; }
-        public string KlinikAd { get; set; }
+        public int PoliklinikId { get; set; }
+        public string PoliklinikAd { get; set; }
     }
 }
