@@ -11,12 +11,12 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public int RandevuId { get; set; }
         public DateTime RandevuTarih { get; set; }
         //public DayOfWeek Gun { get; set; }
-        public TimeSpan BaslangicSaati { get; set; }
-        public TimeSpan BitisSaati { get; set; }
+        //public TimeSpan BaslangicSaati { get; set; }
+        //public TimeSpan BitisSaati { get; set; }
         public int HastaId { get; set; }
-        public Hasta Hasta { get; set; }
+       // public Hasta Hasta { get; set; }
         public int DoktorId { get; set; }
-        public Doktor Doktor { get; set; }
+        //public Doktor Doktor { get; set; }
         public bool Durum { get; set; }
          
     }

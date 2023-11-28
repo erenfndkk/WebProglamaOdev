@@ -7,7 +7,7 @@ using WebProgramlamaOdev.EntityLayer.Concreate;
 
 namespace WebProgramlamaOdev.BusinessLayer.Abstract
 {
-    public interface IDoktorService:IGenericService<Doktor>
+    public interface IDoktorService : IGenericService<Doktor>
     {
     }
 }

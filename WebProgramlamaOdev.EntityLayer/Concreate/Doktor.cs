@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,11 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public string DoktorAd { get; set; }
         public string DoktorSoyad { get; set; }
         public string ImageUrl { get; set; }
-        public int AnaBilimDaliId { get; set; }
         [ForeignKey("AnaBilimDaliId")]
-        public AnaBilimDali AnaBilimDali { get; set; }
-        //public ICollection<CalismaSaati> CalismaSaatleri { get; set; }
-        public ICollection<Randevu> Randevular { get; set; }
+        public int AnaBilimDaliId { get; set; }
+       // public AnaBilimDali AnaBilimDali { get; set; }
+        
+       public ICollection<Randevu> Randevular { get; set; }
 
     }
 }

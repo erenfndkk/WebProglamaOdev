@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgramlamaOdev.DataAccessLayer.Concreate;
 
@@ -11,9 +12,10 @@ using WebProgramlamaOdev.DataAccessLayer.Concreate;
 namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231128163305_mig_düzeltme")]
+    partial class mig_düzeltme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,8 +239,6 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("RandevuId");
 
-                    b.HasIndex("DoktorId");
-
                     b.HasIndex("HastaId");
 
                     b.ToTable("Randevu");
@@ -280,12 +280,6 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Randevu", b =>
                 {
-                    b.HasOne("WebProgramlamaOdev.EntityLayer.Concreate.Doktor", null)
-                        .WithMany("Randevular")
-                        .HasForeignKey("DoktorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("WebProgramlamaOdev.EntityLayer.Concreate.Hasta", null)
                         .WithMany("Randevular")
                         .HasForeignKey("HastaId")
@@ -296,11 +290,6 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.AnaBilimDali", b =>
                 {
                     b.Navigation("Doktorlar");
-                });
-
-            modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Doktor", b =>
-                {
-                    b.Navigation("Randevular");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Hasta", b =>
