@@ -17,6 +17,7 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public Hasta Hasta { get; set; }
         public int DoktorId { get; set; }
         public Doktor Doktor { get; set; }
-        // buna devam edilecek 
+        public bool Durum { get; set; }
+         
     }
 }

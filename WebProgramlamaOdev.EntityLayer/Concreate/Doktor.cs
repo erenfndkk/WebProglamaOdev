@@ -16,7 +16,7 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public int AnaBilimDaliId { get; set; }
         [ForeignKey("AnaBilimDaliId")]
         public AnaBilimDali AnaBilimDali { get; set; }
-        public ICollection<CalismaSaati> CalismaSaatleri { get; set; }
+        //public ICollection<CalismaSaati> CalismaSaatleri { get; set; }
         public ICollection<Randevu> Randevular { get; set; }
 
     }

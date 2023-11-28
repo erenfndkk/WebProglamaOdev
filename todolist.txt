@@ -35,3 +35,6 @@ Randevu tablosu olcak
 -> Kayýtlý kulllanýcýlar yani hastalar istedikleri tarihe uygun doktor ve klinik seçip randevu alýcak.
 -> Randevu alýnýrken doktorun anabilim dalý da göz önünde bulundurulacak.
 bool tipinde deðiþken tanýmla true olanlar listelensin yada listelenmesin
+
+------------------------------
+-> doktorlarý dinamik yapmayý unutma

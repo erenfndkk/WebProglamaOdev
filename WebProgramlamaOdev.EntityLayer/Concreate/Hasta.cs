@@ -13,6 +13,7 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public string HastaSoyad { get; set; }
         public string HastaMail { get; set; }
         public string HastaTelefon { get; set; }
+        public string HastaTC { get; set; }
         public string HastaSifre { get; set; }
         public ICollection<Randevu> Randevular { get; set; }
     }

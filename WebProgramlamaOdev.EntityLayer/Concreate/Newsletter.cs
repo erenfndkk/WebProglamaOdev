@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebProgramlamaOdev.EntityLayer.Concreate
 {
-    public class Newsletter
+    public class Newsletter // subscribe
     {
         [Key]
         public int NewsletterID { get; set; }

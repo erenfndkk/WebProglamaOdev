@@ -19,7 +19,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Repositories
 
         public void Delete(T t)
         {
-           _context.Remove(t);
+            _context.Remove(t);
             _context.SaveChanges();
         }
 
@@ -35,7 +35,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Repositories
 
         public void Insert(T t)
         {
-           _context.Add(t);
+            _context.Add(t);
             _context.SaveChanges();
         }
 
