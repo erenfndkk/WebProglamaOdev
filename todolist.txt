@@ -24,7 +24,7 @@ Admin (Sekreter) tablosu olucak
 -> Ana bilim dalý tablosuyla ilgili iþlemleri sekreter yapýcak.
 -> Poliklinik tablosuyla ilgili iþlemleri sekreter yapýcak.
 -> Randevu tablosu ilgili iþlemleri sekreter yapýcak.
--> Admin sayfasýnda button olsun (doktor iþlemleri) buna týklayýnca doktorlar listelensin
+
 
 ------------------------------
 doktor çalýþma saatleri tablosu olcak

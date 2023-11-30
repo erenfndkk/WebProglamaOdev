@@ -1,0 +1,34 @@
+﻿@model List<PoliklinikViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+div class="table-responsive">
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Ad</th>
+
+            <th>Sil</th>
+            <th>GÜncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.PoliklinikId</th>
+                <td>@item.PoliklinikAd</td>
+
+                <td><a href="/Poliklinikk/DeletePoliklinik/@item.PoliklinikId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Poliklinikk/UpdatePoliklinik/@item.PoliklinikId" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Poliklinikk/AddPoliklinik/" class="btn btn-primary">Yeni Poliklinik Ekle</a>
+</div>

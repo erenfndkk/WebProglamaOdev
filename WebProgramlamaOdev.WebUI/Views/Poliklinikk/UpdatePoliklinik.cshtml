@@ -1,0 +1,16 @@
+﻿@model UpdatePoliklinikViewModel
+@{
+    ViewData["Title"] = "UpdatePoliklinik";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>UpdatePoliklinik</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="PoliklinikId" />
+    <label>Poliklinik Adı</label>
+    <input type="text" asp-for="PoliklinikAd" class="form-control" />
+    <br />
+
+    <button class="btn btn-primary">Poliklinik Güncelle</button>
+</form>

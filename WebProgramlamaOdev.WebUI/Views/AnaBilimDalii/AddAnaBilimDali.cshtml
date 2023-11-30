@@ -1,0 +1,15 @@
+﻿@model AddAnaBilimDaliViewModel
+@{
+    ViewData["Title"] = "AddAnaBilimDali";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>AddAnaBilimDali</h1>
+
+<form method="post">
+    <label>Ana Bilim Dalı Adı</label>
+    <input type="text" asp-for="AnaBilimDaliAd" class="form-control" />
+    <br />
+   
+    <button class="btn btn-primary">AnaBilimDali Ekle</button>
+</form>

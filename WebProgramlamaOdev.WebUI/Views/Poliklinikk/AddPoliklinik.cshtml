@@ -1,0 +1,15 @@
+﻿@model AddPoliklinikViewModel
+@{
+    ViewData["Title"] = "AddPoliklinik";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>AddPoliklinik</h1>
+
+<form method="post">
+    <label>Poliklinik Adı</label>
+    <input type="text" asp-for="PoliklinikAd" class="form-control" />
+    <br />
+
+    <button class="btn btn-primary">Poliklinik Ekle</button>
+</form>

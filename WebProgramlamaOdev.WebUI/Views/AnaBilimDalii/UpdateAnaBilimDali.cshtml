@@ -1,0 +1,16 @@
+﻿@model UpdateAnaBilimDaliViewModel
+@{
+    ViewData["Title"] = "UpdateAnaBilimDali";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>UpdateAnaBilimDali</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="AnaBilimDaliId" />
+    <label>AnaBilimDali Adı</label>
+    <input type="text" asp-for="AnaBilimDaliAd" class="form-control" />
+    <br />
+  
+    <button class="btn btn-primary">AnaBilimDali Güncelle</button>
+</form>
