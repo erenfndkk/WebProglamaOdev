@@ -10,7 +10,7 @@ using WebProgramlamaOdev.EntityLayer.Concreate;
 
 namespace WebProgramlamaOdev.DataAccessLayer.Concreate
 {
-    public class Context : DbContext
+    public class Context : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

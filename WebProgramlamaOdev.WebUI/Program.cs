@@ -1,9 +1,15 @@
+using WebProgramlamaOdev.DataAccessLayer.Concreate;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+//app.Services.AddDbContext<Context>();
+//app.Services.AddIdentity<>
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

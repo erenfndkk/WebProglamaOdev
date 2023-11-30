@@ -1,0 +1,39 @@
+﻿@model List<DoktorViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Resim</th>
+                <th>Ana bilim Dalı</th>
+                <th>Sil</th>
+                <th>GÜncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.DoktorId</th>
+                    <td>@item.DoktorAd</td>
+                    <td>@item.DoktorSoyad</td>
+                    <td>@item.ImageUrl</td>
+                    <td class="color-primary">@item.AnaBilimDaliId</td>
+                    <td><a href="#" class="btn btn-danger">Sil</a></td>
+                    <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+           
+        </tbody>
+    </table>
+    <td><a href="#" class="btn btn-primary">yeni doktor girişi</a></td>
+</div>
