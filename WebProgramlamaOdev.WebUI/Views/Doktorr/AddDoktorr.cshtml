@@ -1,0 +1,23 @@
+﻿@model AddDoktorViewModel
+@{
+    ViewData["Title"] = "AddDoktorr";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>AddDoktorr</h1>
+
+<form method="post">
+    <label>Doktor Adı</label>
+    <input type="text" asp-for="DoktorAd" class="form-control" />
+    <br />
+    <label>Doktor Soyadı</label>
+    <input type="text" asp-for="DoktorSoyad" class="form-control" />
+    <br />
+    <label>Resim Yolu</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" />
+    <br />
+    <label>Ana Bilim Dalı</label>
+    <input type="text" asp-for="AnaBilimDaliId" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Doktor Ekle</button>
+</form>

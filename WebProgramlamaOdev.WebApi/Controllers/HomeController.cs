@@ -28,7 +28,7 @@ namespace WebProgramlamaOdev.WebApi.Controllers
             _homeService.TInsert(home);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteHome(int id)
         {
             var value = _homeService.TGetByID(id);

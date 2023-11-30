@@ -28,7 +28,7 @@ namespace WebProgramlamaOdev.WebApi.Controllers
             _randevuService.TInsert(randevu);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteRandevu(int id)
         {
             var value = _randevuService.TGetByID(id);

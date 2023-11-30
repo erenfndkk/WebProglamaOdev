@@ -28,7 +28,7 @@ namespace WebProgramlamaOdev.WebApi.Controllers
             _doktorService.TInsert(doktor);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDoktor(int id)
         {
             var value = _doktorService.TGetByID(id);

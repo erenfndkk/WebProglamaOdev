@@ -28,7 +28,7 @@ namespace WebProgramlamaOdev.WebApi.Controllers
             _hastaService.TInsert(hasta);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteHasta(int id)
         {
             var value = _hastaService.TGetByID(id);

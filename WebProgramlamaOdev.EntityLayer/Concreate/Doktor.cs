@@ -15,9 +15,9 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public string DoktorSoyad { get; set; }
         public string ImageUrl { get; set; }
         public int AnaBilimDaliId { get; set; }
-       // public AnaBilimDali AnaBilimDali { get; set; }
-        
-       public ICollection<Randevu> Randevular { get; set; }
+        // public AnaBilimDali AnaBilimDali { get; set; }
+
+        public ICollection<Randevu> Randevular { get; set; }
 
     }
 }

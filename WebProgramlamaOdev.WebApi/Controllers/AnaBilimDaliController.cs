@@ -28,7 +28,7 @@ namespace WebProgramlamaOdev.WebApi.Controllers
             _anaBilimDaliService.TInsert(anaBilimDali);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteAnaBilimDali(int id)
         {
             var value = _anaBilimDaliService.TGetByID(id);

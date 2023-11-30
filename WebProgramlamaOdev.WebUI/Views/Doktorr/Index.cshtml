@@ -28,12 +28,12 @@
                     <td>@item.DoktorSoyad</td>
                     <td>@item.ImageUrl</td>
                     <td class="color-primary">@item.AnaBilimDaliId</td>
-                    <td><a href="#" class="btn btn-danger">Sil</a></td>
-                    <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Doktorr/DeleteDoktorr/@item.DoktorId" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Doktorr/UpdateDoktor/@item.DoktorId" class="btn btn-success">Güncelle</a></td>
                 </tr>
             }
            
         </tbody>
     </table>
-    <td><a href="#" class="btn btn-primary">yeni doktor girişi</a></td>
+   <a href="/Doktorr/AddDoktorr/" class="btn btn-primary">Yeni Doktor Ekle</a>
 </div>

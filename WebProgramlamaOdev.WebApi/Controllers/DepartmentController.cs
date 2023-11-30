@@ -28,7 +28,7 @@ namespace WebProgramlamaOdev.WebApi.Controllers
             _departmentService.TInsert(department);
             return Ok();
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteDepartment(int id)
         {
             var value = _departmentService.TGetByID(id);
