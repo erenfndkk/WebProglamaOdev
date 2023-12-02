@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+
+@await Component.InvokeAsync("_HeadPartial")
+<body>
+
+    <div class="hero_area">
+
+      
+        <!-- header section strats -->
+        @await Component.InvokeAsync("_HeaderPartial")
+        <!-- end header section -->
+        <!-- slider section -->
+        @await Component.InvokeAsync("_SliderPartial")
+        <!-- end slider section -->
+    </div>
+
+
+    <!-- department section -->
+    @await Component.InvokeAsync("_DepartmentPartial")
+
+    <!-- end department section -->
+    <!-- about section -->
+    @await Component.InvokeAsync("_AboutPartial")
+
+    <!-- end about section -->
+    <!-- doctor section -->
+    @await Component.InvokeAsync("_DoctorPartial")
+
+    <!-- end doctor section -->
+    <!-- contact section -->
+    @await Component.InvokeAsync("_ContactPartial")
+    <!-- end contact section -->
+    <!-- client section -->
+    @await Component.InvokeAsync("_ClientPartial")
+
+    <!-- end client section -->
+    <!-- footer section -->
+    @await Component.InvokeAsync("_FooterPartial")
+    <!-- footer section -->
+    @await Component.InvokeAsync("_ScriptsPartial")
+
+</body>
+
+</html>

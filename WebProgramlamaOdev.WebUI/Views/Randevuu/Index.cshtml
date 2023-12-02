@@ -1,0 +1,42 @@
+﻿@model List<RandevuViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Randevu Tarih</th>
+                <th>Saat Aralığı</th>
+                <th>Hasta Id</th>
+                <th>Doktor Id</th>
+                <th>Durum</th>
+                <th>Sil</th>
+                <th>GÜncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.RandevuId</th>
+                    <td>@item.RandevuTarih</td>
+                    <td>@item.SaatAraligi</td>
+                    <td>@item.HastaId</td>
+                    <td>@item.DoktorId</td>
+                    <td>@item.Durum</td>
+                    <td class="color-primary">@item.RandevuId</td>
+                    <td><a href="/Randevuu/DeleteRandevu/@item.RandevuId" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Randevuu/UpdateRandevu/@item.RandevuId" class="btn btn-success">Güncelle</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <a href="/Randevuu/AddRandevu/" class="btn btn-primary">Yeni Randevu Ekle</a>
+</div>

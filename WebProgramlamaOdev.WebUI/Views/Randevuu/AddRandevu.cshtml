@@ -1,0 +1,26 @@
+﻿@model AddRandevuViewModel
+@{
+    ViewData["Title"] = "AddRandevu";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<h1>AddRandevu</h1>
+
+<form method="post">
+    <label>Randevu Tarih</label>
+    <input type="datetime" asp-for="RandevuTarih" class="form-control" />
+    <br />
+    <label>Saat Aralığı</label>
+    <input type="text" asp-for="SaatAraligi" class="form-control" />
+    <br />
+    <label>Hasta</label>
+    <input type="text" asp-for="HastaId" class="form-control" />
+    <br />
+    <label>Doktor</label>
+    <input type="text" asp-for="DoktorId" class="form-control" />
+    <br />
+    <label>Durum</label>
+    <input type="text" asp-for="Durum" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Randevu Ekle</button>
+</form>

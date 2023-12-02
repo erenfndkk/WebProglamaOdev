@@ -10,6 +10,7 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
     {
         public int RandevuId { get; set; }
         public DateTime RandevuTarih { get; set; }
+        public string SaatAraligi { get; set; }
         //public DayOfWeek Gun { get; set; }
         //public TimeSpan BaslangicSaati { get; set; }
         //public TimeSpan BitisSaati { get; set; }
