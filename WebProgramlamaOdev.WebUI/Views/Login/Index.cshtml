@@ -1,4 +1,4 @@
-﻿@model AddHastaViewModel
+﻿@model LoginUserDto
 @{
     Layout = null;
 }
@@ -36,23 +36,19 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
 
-                                <p class="text-center" href=""> <h4>Hasta Kayıt Paneli</h4></p>
+                                <p class="text-center" href="/Login/Index/"> <h4>Hasta Giriş Paneli</h4></p>
 
                                 <form class="mt-5 mb-5 login-input" method="post">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Ad" asp-for="HastaAd" required>
+                                        <input type="text" class="form-control" placeholder="Kullanıcı adı" asp-for="Username" required>
+                                        <span asp-validation-for="Username" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Soyad" asp-for="HastaSoyad" required>
+                                        <input type="password" class="form-control" placeholder="Şifre" asp-for="Password" required>
+                                        <span asp-validation-for="Password" class="text-danger"></span>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" asp-for="HastaMail" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Şifre" asp-for="HastaSifre" required>
-                                    </div>
-                                    <button class="btn login-form__btn submit w-100">Kayıt Yap</button>
-                                    <p class="mt-5 login-form__footer">Zaten bir hesabın var mı? <a href="/Hasta/Index/" class="text-primary">giriş yap </a></p>
+                                    <button class="btn login-form__btn submit w-100">giriş yap</button>
+                                    <p class="mt-5 login-form__footer">Hesabın yok mu? <a href="/Register/Index/" class="text-primary">kayıt ol</a></p>
                                 </form>
                             </div>
                         </div>

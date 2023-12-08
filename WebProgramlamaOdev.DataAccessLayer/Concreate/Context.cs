@@ -23,7 +23,6 @@ namespace WebProgramlamaOdev.DataAccessLayer.Concreate
         public DbSet<Hasta> Hasta { get; set; }
         public DbSet<Poliklinik> Poliklinik { get; set; }
         public DbSet<Randevu> Randevu { get; set; }
-
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Newsletter> Newsletters { get; set; }

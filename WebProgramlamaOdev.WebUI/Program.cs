@@ -1,4 +1,5 @@
 using WebProgramlamaOdev.DataAccessLayer.Concreate;
+using WebProgramlamaOdev.EntityLayer.Concreate;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,10 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+
 var app = builder.Build();
 
-//app.Services.AddDbContext<Context>();
-//app.Services.AddIdentity<>
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

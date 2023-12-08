@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WebProgramlamaOdev.EntityLayer.Concreate;
 using WebProgramlamaOdev.WebUI.Dtos;
+using WebProgramlamaOdev.WebUI.Dtos.RegisterDto;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
@@ -19,19 +20,20 @@ namespace WebProgramlamaOdev.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Index(CreateNewHastaDto createNewHastaDto)
+        public async Task<IActionResult> Index(CreateNewUserDto createNewUserDto)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            var hasta = new AppUser()
+            var user = new AppUser()
             {
-                Name = createNewHastaDto.HastaAd,
-                Surname = createNewHastaDto.HastaSoyad,
-                Email = createNewHastaDto.HastaMail        
+                Name = createNewUserDto.Name,
+                Surname = createNewUserDto.Surname,
+                Email = createNewUserDto.Mail,
+                UserName = createNewUserDto.Username
             };
-            var result = await _userManager.CreateAsync(hasta, createNewHastaDto.HastaSifre);
+            var result = await _userManager.CreateAsync(user, createNewUserDto.Password);
             if (result.Succeeded) 
             {
                 return RedirectToAction("Index", "Login");
