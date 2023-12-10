@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebProgramlamaOdev.DataAccessLayer.Concreate;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
-    public class AdminLoginController : Controller
+    public class InformationController : Controller
     {
         public IActionResult Index()
         {

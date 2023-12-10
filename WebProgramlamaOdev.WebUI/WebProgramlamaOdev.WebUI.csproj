@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Resourcess\**" />
+    <Content Remove="Resourcess\**" />
+    <EmbeddedResource Remove="Resourcess\**" />
+    <None Remove="Resourcess\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\orthoc\.git\COMMIT_EDITMSG" />
     <None Include="wwwroot\orthoc\.git\config" />
     <None Include="wwwroot\orthoc\.git\description" />
@@ -101,11 +108,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WebProgramlamaOdev.WebApi\WebProgramlamaOdev.WebApi.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-    <Folder Include="Resourcess\" />
   </ItemGroup>
 
 </Project>

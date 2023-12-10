@@ -1,4 +1,8 @@
 ﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
 
 <section class="slider_section ">
     <div id="customCarousel1" class="carousel slide" data-ride="carousel">
@@ -14,7 +18,7 @@
                                 <p>
                                     @localizer["sizi ve ailenizi önemsiyoruz."]
                                 </p>
-                                
+
                             </div>
                         </div>
                     </div>
