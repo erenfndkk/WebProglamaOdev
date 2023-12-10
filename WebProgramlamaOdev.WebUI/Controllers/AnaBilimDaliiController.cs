@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 using WebProgramlamaOdev.WebUI.Models.AnaBilimDali;
@@ -6,6 +7,7 @@ using WebProgramlamaOdev.WebUI.Models.Doktor;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class AnaBilimDaliiController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Data;
 using System.Text;
 using WebProgramlamaOdev.WebUI.Models.Doktor;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class DoktorrController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

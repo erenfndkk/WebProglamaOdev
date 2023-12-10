@@ -103,4 +103,9 @@
     <ProjectReference Include="..\WebProgramlamaOdev.WebApi\WebProgramlamaOdev.WebApi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+    <Folder Include="Resourcess\" />
+  </ItemGroup>
+
 </Project>

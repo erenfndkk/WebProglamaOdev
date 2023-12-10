@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Data;
 using System.Text;
 using WebProgramlamaOdev.WebUI.Models.Poliklinik;
 using WebProgramlamaOdev.WebUI.Models.Randevu;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
+    [Authorize(Roles = "ADMIN")]
     public class RandevuuController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

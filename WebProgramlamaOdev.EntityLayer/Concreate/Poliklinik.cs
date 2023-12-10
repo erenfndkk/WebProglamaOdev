@@ -10,5 +10,6 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
     {
         public int PoliklinikId { get; set; }
         public string PoliklinikAd { get; set; }
+        public ICollection<Randevu> Randevu { get; set; }
     }
 }

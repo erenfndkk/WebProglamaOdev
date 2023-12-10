@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebProgramlamaOdev.EntityLayer.Concreate;
+using WebProgramlamaOdev.WebUI.Dtos.AdminDto;
 using WebProgramlamaOdev.WebUI.Dtos.LoginDto;
 
 namespace WebProgramlamaOdev.WebUI.Controllers

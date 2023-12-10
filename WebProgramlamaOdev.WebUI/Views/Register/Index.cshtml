@@ -40,31 +40,32 @@
 
                                 <form class="mt-5 mb-5 login-input" method="post">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Ad" asp-for="Name" required>
+                                        <input type="text" class="form-control" placeholder="Ad" asp-for="Name">
                                         <span asp-validation-for="Name" class="text-warning"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Soyad" asp-for="Surname" required>
+                                        <input type="text" class="form-control" placeholder="Soyad" asp-for="Surname">
                                         <span asp-validation-for="Surname" class="text-warning"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="kullanıcı adı" asp-for="Username" required>
+                                        <input type="text" class="form-control" placeholder="kullanıcı adı" asp-for="Username">
                                         <span asp-validation-for="Username" class="text-warning"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" asp-for="Mail" required>
+                                        <input type="email" class="form-control" placeholder="Email" asp-for="Mail">
                                         <span asp-validation-for="Mail" class="text-warning"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Şifre" asp-for="Password" required>
+                                        <input type="text" class="form-control" placeholder="Şifre" asp-for="Password">
                                         <span asp-validation-for="Password" class="text-warning"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Şifre Tekrar" asp-for="ConfirmPassword" required>
+                                        <input type="text" class="form-control" placeholder="Şifre Tekrar" asp-for="ConfirmPassword">
                                         <span asp-validation-for="ConfirmPassword" class="text-warning"></span>
                                     </div>
                                     <button class="btn login-form__btn submit w-100">Kayıt Yap</button>
                                     <p class="mt-5 login-form__footer">Zaten bir hesabın var mı? <a href="/Login/Index/" class="text-primary">giriş yap </a></p>
+                                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                                 </form>
                             </div>
                         </div>
