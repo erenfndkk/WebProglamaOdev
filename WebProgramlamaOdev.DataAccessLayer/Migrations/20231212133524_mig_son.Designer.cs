@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgramlamaOdev.DataAccessLayer.Concreate;
 
@@ -11,9 +12,10 @@ using WebProgramlamaOdev.DataAccessLayer.Concreate;
 namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231212133524_mig_son")]
+    partial class mig_son
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -310,7 +312,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DoktorId"), 1L, 1);
 
-                    b.Property<int>("AnaBilimDaliId")
+                    b.Property<int?>("AnaBilimDaliId")
                         .HasColumnType("int");
 
                     b.Property<string>("DoktorAd")
@@ -527,13 +529,9 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Doktor", b =>
                 {
-                    b.HasOne("WebProgramlamaOdev.EntityLayer.Concreate.AnaBilimDali", "AnaBilimDali")
+                    b.HasOne("WebProgramlamaOdev.EntityLayer.Concreate.AnaBilimDali", null)
                         .WithMany("Doktorlar")
-                        .HasForeignKey("AnaBilimDaliId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AnaBilimDali");
+                        .HasForeignKey("AnaBilimDaliId");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Randevu", b =>

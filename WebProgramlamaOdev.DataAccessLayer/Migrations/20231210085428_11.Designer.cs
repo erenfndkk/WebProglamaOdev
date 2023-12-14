@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgramlamaOdev.DataAccessLayer.Concreate;
 
@@ -11,9 +12,10 @@ using WebProgramlamaOdev.DataAccessLayer.Concreate;
 namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231210085428_11")]
+    partial class _11
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -527,13 +529,11 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Doktor", b =>
                 {
-                    b.HasOne("WebProgramlamaOdev.EntityLayer.Concreate.AnaBilimDali", "AnaBilimDali")
+                    b.HasOne("WebProgramlamaOdev.EntityLayer.Concreate.AnaBilimDali", null)
                         .WithMany("Doktorlar")
                         .HasForeignKey("AnaBilimDaliId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("AnaBilimDali");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Randevu", b =>

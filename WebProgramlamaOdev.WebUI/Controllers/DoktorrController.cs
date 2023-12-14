@@ -7,7 +7,7 @@ using WebProgramlamaOdev.WebUI.Models.Doktor;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
+    [Authorize(Roles = "Admin")]
     public class DoktorrController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

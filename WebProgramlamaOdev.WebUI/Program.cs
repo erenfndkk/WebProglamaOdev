@@ -26,6 +26,9 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 })
     .AddEntityFrameworkStores<Context>();
 
+builder.Services.AddControllers(
+                options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
+
 var app = builder.Build();
 
 
@@ -42,6 +45,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseAuthorization();
 var supportedCultures = new[] { "en", "tr" };

@@ -4,7 +4,7 @@ using System.Data;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
+    [Authorize(Roles = "Admin")]
     public class AdminLayoutController : Controller
     {
         public IActionResult _AdminLayout()

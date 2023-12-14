@@ -1,4 +1,4 @@
-﻿@model AdminViewMModel
+﻿@model LoginUserDto
 @{
     Layout = null;
 }
@@ -36,16 +36,19 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
 
-                                <p class="text-center" href=""> <h4>Admin Giriş Paneli</h4></p>
+                                <p class="text-center" href="/AdminLogin/Index/"> <h4>Admin Giriş Paneli</h4></p>
 
-                                <form class="mt-5 mb-5 login-input" asp-controller="Doktorr" asp-action="Index" method="post">
+                                <form class="mt-5 mb-5 login-input" method="post">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Kullanıcı Adınız(mail)" asp-for="AdminKullaniciAdi">
+                                        <input type="text" class="form-control" placeholder="Kullanıcı adı" asp-for="Username" required>
+                                        <span asp-validation-for="Username" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Şifreniz" asp-for="AdminSifre" >
+                                        <input type="password" class="form-control" placeholder="Şifre" asp-for="Password" required>
+                                        <span asp-validation-for="Password" class="text-danger"></span>
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Giriş Yap</button>
+                                    <button class="btn login-form__btn submit w-100">giriş yap</button>
+
                                 </form>
                             </div>
                         </div>

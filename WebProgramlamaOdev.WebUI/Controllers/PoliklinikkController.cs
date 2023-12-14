@@ -8,7 +8,7 @@ using WebProgramlamaOdev.WebUI.Models.Poliklinik;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
+    [Authorize(Roles = "Admin")]
     public class PoliklinikkController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

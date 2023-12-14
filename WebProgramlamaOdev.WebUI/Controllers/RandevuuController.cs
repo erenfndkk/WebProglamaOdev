@@ -8,7 +8,7 @@ using WebProgramlamaOdev.WebUI.Models.Randevu;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
 {
-    [Authorize(Roles = "ADMIN")]
+    [Authorize(Roles = "Admin")]
     public class RandevuuController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

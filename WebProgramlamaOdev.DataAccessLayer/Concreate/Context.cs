@@ -14,7 +14,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Concreate
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=ERMISH\\SQLEXPRESS01;initial catalog=OdevDb;integrated security=true");
+            optionsBuilder.UseSqlServer("server=ERMISH\\SQLEXPRESS01;initial catalog=OdevDb3;integrated security=true");
         }
 
         public DbSet<Admin> Admin { get; set; }
