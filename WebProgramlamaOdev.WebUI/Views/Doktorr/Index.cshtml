@@ -1,10 +1,11 @@
-﻿@model List<DoktorViewModel>
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model List<Doktor>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Doktorlar</h1>
 
 <div class="table-responsive">
     <table class="table">
@@ -13,7 +14,7 @@
                 <th>#</th>
                 <th>Ad</th>
                 <th>Soyad</th>
-                <th>Resim</th>
+                <th>Resim yolu</th>
                 <th>Ana bilim Dalı</th>
                 <th>Sil</th>
                 <th>GÜncelle</th>

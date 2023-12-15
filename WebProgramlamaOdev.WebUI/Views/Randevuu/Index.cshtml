@@ -1,4 +1,5 @@
-﻿@model List<RandevuViewModel>
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model List<Randevu>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
@@ -13,8 +14,9 @@
                 <th>#</th>
                 <th>Randevu Tarih</th>
                 <th>Saat Aralığı</th>
-                <th>Hasta Id</th>
+                <th>Hasta TC</th>
                 <th>Doktor Id</th>
+                <th>Poliklinik Id</th>
                 <th>Durum</th>
                 <th>Sil</th>
                 <th>GÜncelle</th>
@@ -27,10 +29,10 @@
                     <th>@item.RandevuId</th>
                     <td>@item.RandevuTarih</td>
                     <td>@item.SaatAraligi</td>
-                    <td>@item.HastaId</td>
+                    <td>@item.HastaTC</td>
                     <td>@item.DoktorId</td>
+                    <td>@item.PoliklinikId</td>
                     <td>@item.Durum</td>
-                    <td class="color-primary">@item.RandevuId</td>
                     <td><a href="/Randevuu/DeleteRandevu/@item.RandevuId" class="btn btn-danger">Sil</a></td>
                     <td><a href="/Randevuu/UpdateRandevu/@item.RandevuId" class="btn btn-success">Güncelle</a></td>
                 </tr>

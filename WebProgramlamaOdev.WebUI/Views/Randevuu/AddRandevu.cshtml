@@ -1,10 +1,11 @@
-﻿@model AddRandevuViewModel
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model Randevu
 @{
     ViewData["Title"] = "AddRandevu";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>AddRandevu</h1>
+<h1>Randevu Ekle</h1>
 
 <form method="post">
     <label>Randevu Tarih</label>
@@ -13,11 +14,14 @@
     <label>Saat Aralığı</label>
     <input type="text" asp-for="SaatAraligi" class="form-control" />
     <br />
-    <label>Hasta</label>
-    <input type="text" asp-for="HastaId" class="form-control" />
+    <label>Hasta Tc</label>
+    <input type="text" asp-for="HastaTC" class="form-control" />
     <br />
     <label>Doktor</label>
     <input type="text" asp-for="DoktorId" class="form-control" />
+    <br />
+    <label>Poliklinik</label>
+    <input type="text" asp-for="PoliklinikId" class="form-control" />
     <br />
     <label>Durum</label>
     <input type="text" asp-for="Durum" class="form-control" />

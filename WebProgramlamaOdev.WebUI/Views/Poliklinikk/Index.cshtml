@@ -1,12 +1,13 @@
-﻿@model List<PoliklinikViewModel>
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model List<Poliklinik>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Poliklinikler</h1>
 
-div class="table-responsive">
+<div class="table-responsive">
 <table class="table">
     <thead>
         <tr>

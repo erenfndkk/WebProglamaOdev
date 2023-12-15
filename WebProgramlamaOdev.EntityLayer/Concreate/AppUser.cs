@@ -11,5 +11,6 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string UserTC { get; set; }  
     }
 }

@@ -45,7 +45,14 @@ namespace WebProgramlamaOdev.WebUI.Controllers
                     }
                     else if (await _signInManager.UserManager.IsInRoleAsync(user, "Hasta"))
                     {
-                        return RedirectToAction("UserPanel", "User"); // User paneline yönlendirme
+                        var hasta = new LoginUserDto
+                        {
+                            Username = user.UserName
+                            // Görüntülemek istediğiniz diğer özellikleri ekleyin
+                        };
+                        TempData["Username"] = hasta.Username;
+
+                        return RedirectToAction("Index", "Hasta", hasta); // User paneline yönlendirme
                     }
                 }
             }

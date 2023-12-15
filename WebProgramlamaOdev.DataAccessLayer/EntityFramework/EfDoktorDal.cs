@@ -12,6 +12,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.EntityFramework
 {
     public class EfDoktorDal : GenericRepository<Doktor>, IDoktorDal
     {
+
         public EfDoktorDal(Context context) : base(context)
         {
         }

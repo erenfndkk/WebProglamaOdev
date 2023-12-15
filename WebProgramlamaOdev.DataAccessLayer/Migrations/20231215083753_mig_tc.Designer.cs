@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgramlamaOdev.DataAccessLayer.Concreate;
 
@@ -11,9 +12,10 @@ using WebProgramlamaOdev.DataAccessLayer.Concreate;
 namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20231215083753_mig_tc")]
+    partial class mig_tc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -151,7 +153,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("AdminId");
 
-                    b.ToTable("Admin", (string)null);
+                    b.ToTable("Admin");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.AnaBilimDali", b =>
@@ -168,7 +170,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("AnaBilimDaliId");
 
-                    b.ToTable("AnaBilimDali", (string)null);
+                    b.ToTable("AnaBilimDali");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.AppRole", b =>
@@ -303,7 +305,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("DepartmentID");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Doktor", b =>
@@ -333,7 +335,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasIndex("AnaBilimDaliId");
 
-                    b.ToTable("Doktor", (string)null);
+                    b.ToTable("Doktor");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Hasta", b =>
@@ -362,7 +364,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("HastaId");
 
-                    b.ToTable("Hasta", (string)null);
+                    b.ToTable("Hasta");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Home", b =>
@@ -383,7 +385,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("HomeID");
 
-                    b.ToTable("Homes", (string)null);
+                    b.ToTable("Homes");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Newsletter", b =>
@@ -400,7 +402,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("NewsletterID");
 
-                    b.ToTable("Newsletters", (string)null);
+                    b.ToTable("Newsletters");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Poliklinik", b =>
@@ -417,7 +419,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("PoliklinikId");
 
-                    b.ToTable("Poliklinik", (string)null);
+                    b.ToTable("Poliklinik");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Randevu", b =>
@@ -454,7 +456,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasIndex("PoliklinikId");
 
-                    b.ToTable("Randevu", (string)null);
+                    b.ToTable("Randevu");
                 });
 
             modelBuilder.Entity("WebProgramlamaOdev.EntityLayer.Concreate.Testimonial", b =>
@@ -479,7 +481,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
 
                     b.HasKey("TestimonialID");
 
-                    b.ToTable("Testimonials", (string)null);
+                    b.ToTable("Testimonials");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

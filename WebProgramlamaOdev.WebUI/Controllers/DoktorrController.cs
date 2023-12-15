@@ -1,8 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Text;
+using WebProgramlamaOdev.BusinessLayer.Abstract;
+using WebProgramlamaOdev.BusinessLayer.Concreate;
+using WebProgramlamaOdev.DataAccessLayer.EntityFramework;
+using WebProgramlamaOdev.EntityLayer.Concreate;
 using WebProgramlamaOdev.WebUI.Models.Doktor;
 
 namespace WebProgramlamaOdev.WebUI.Controllers
@@ -10,24 +15,94 @@ namespace WebProgramlamaOdev.WebUI.Controllers
     [Authorize(Roles = "Admin")]
     public class DoktorrController : Controller
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        //private readonly IHttpClientFactory _httpClientFactory;
 
-        public DoktorrController(IHttpClientFactory httpClientFactory)
+        //public DoktorrController(IHttpClientFactory httpClientFactory)
+        //{
+        //    _httpClientFactory = httpClientFactory;
+        //}
+
+        //public async Task<IActionResult> Index()
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var responseMessage = await client.GetAsync("http://localhost:5098/api/Doktor");
+        //    if (responseMessage.IsSuccessStatusCode)
+        //    {
+        //        var jsonData = await responseMessage.Content.ReadAsStringAsync();
+        //        var values = JsonConvert.DeserializeObject<List<DoktorViewModel>>(jsonData);
+        //        return View(values);
+        //    }
+        //    return View();
+        //}
+        //[HttpGet]
+        //public IActionResult AddDoktorr()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public async Task<IActionResult> AddDoktorr(AddDoktorViewModel addDoktorViewModel)
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var jsonData = JsonConvert.SerializeObject(addDoktorViewModel);
+        //    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        //    var responseMessage = await client.PostAsync("http://localhost:5098/api/Doktor", stringContent);
+        //    if (responseMessage.IsSuccessStatusCode)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
+        //public async Task<IActionResult> DeleteDoktorr(int id)
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var responseMessage = await client.DeleteAsync($"http://localhost:5098/api/Doktor/{id}");
+        //    if (responseMessage.IsSuccessStatusCode)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
+        //[HttpGet]
+        //public async Task<IActionResult> UpdateDoktor(int id)
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var responseMessage = await client.GetAsync($"http://localhost:5098/api/Doktor/{id}");
+        //    if (responseMessage.IsSuccessStatusCode)
+        //    {
+        //        var jsonData = await responseMessage.Content.ReadAsStringAsync();
+        //        var values = JsonConvert.DeserializeObject<UpdateDoktorViewModel>(jsonData);
+        //        return View(values);
+        //    }
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> UpdateDoktor(UpdateDoktorViewModel model)
+        //{
+        //    var client = _httpClientFactory.CreateClient();
+        //    var jsonData = JsonConvert.SerializeObject(model);
+        //    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        //    var responseMessage = await client.PutAsync("http://localhost:5098/api/Doktor/", stringContent);
+        //    if (responseMessage.IsSuccessStatusCode)
+        //    {
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View();
+        //}
+
+        //*********************************************************************************//
+
+        private readonly IDoktorService _doktorService;
+
+        public DoktorrController(IDoktorService doktorService)
         {
-            _httpClientFactory = httpClientFactory;
+            _doktorService = doktorService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5098/api/Doktor");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<DoktorViewModel>>(jsonData);
-                return View(values);
-            }
-            return View();
+            var values = _doktorService.TGetList();
+            return View(values);
         }
         [HttpGet]
         public IActionResult AddDoktorr()
@@ -35,54 +110,32 @@ namespace WebProgramlamaOdev.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddDoktorr(AddDoktorViewModel addDoktorViewModel)
+        public IActionResult AddDoktorr(Doktor doktor)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData=JsonConvert.SerializeObject(addDoktorViewModel);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:5098/api/Doktor", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return View();
+
+            _doktorService.TInsert(doktor);
+            return RedirectToAction("Index");
+
         }
-        public async Task<IActionResult> DeleteDoktorr(int id)
+        public IActionResult DeleteDoktorr(int id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"http://localhost:5098/api/Doktor/{id}");
-            if (responseMessage.IsSuccessStatusCode) 
-            { 
-                return RedirectToAction("Index");
-            }
-            return View();
+            var values = _doktorService.TGetByID(id);
+            _doktorService.TDelete(values);
+            return RedirectToAction("Index");
         }
         [HttpGet]
-        public async Task<IActionResult> UpdateDoktor(int id)
+        public IActionResult UpdateDoktor(int id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:5098/api/Doktor/{id}");
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateDoktorViewModel>(jsonData);
-                return View(values);
-            }
-            return View();
+            var value = _doktorService.TGetByID(id);
+            return View(value);
         }
-
         [HttpPost]
-        public async Task<IActionResult> UpdateDoktor(UpdateDoktorViewModel model)
+        public IActionResult UpdateDoktor(Doktor doktor)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(model);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:5098/api/Doktor/", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return View();
+
+            _doktorService.TUpdate(doktor);
+            return RedirectToAction("Index");
+
         }
 
     }
