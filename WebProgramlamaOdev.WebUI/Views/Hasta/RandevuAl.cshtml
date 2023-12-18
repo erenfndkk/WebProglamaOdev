@@ -1,0 +1,25 @@
+﻿@using System.Data;
+@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model Randevu
+
+@{
+    ViewData["Title"] = "RandevuAl";
+    Layout = "~/Views/Shared/_HastaLayout.cshtml";
+}
+
+<h3>Randevu Seç</h3>
+
+<form method="post" asp-controller="Hasta" asp-action="ListRandevular">
+    <label>Poliklinik</label>
+    <select asp-for="PoliklinikId" class="form-control" asp-items="@ViewBag.PoliklinikListesi">
+        <option value="">Poliklinik seçiniz</option>
+    </select>
+    <br />
+    <label>Doktor</label>
+    <select asp-for="DoktorId" class="form-control" asp-items="@ViewBag.DoktorListesi">
+        <option value="">Doktor seçiniz</option>
+    </select>
+    <br />
+    <button class="btn btn-primary">Randevu Seç</button>
+</form>
+

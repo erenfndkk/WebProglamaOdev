@@ -1,0 +1,61 @@
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model List<Randevu>
+@{
+    ViewData["Title"] = "ListRandevular";
+    Layout = "~/Views/Shared/_HastaLayout.cshtml";
+}
+
+<h3>Seçilen Kriterlere Göre Randevular</h3>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Randevu Tarih</th>
+                <th>Saat Aralığı</th>
+                <th>Doktor</th>
+                <th>Poliklinik</th>
+                <th>Randevu Al</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var randevu in Model)
+            {
+                <tr>
+                    <td>@randevu.RandevuTarih</td>
+                    <td>@randevu.SaatAraligi</td>
+                    <td>@randevu.Doktor?.FullName</td>
+                    <td>@randevu.Poliklinik?.PoliklinikAd</td>
+                    <td><button class="btn btn-primary" onclick="randevuAl(@randevu.RandevuId)">Randevu Al</button></td>
+
+                    @*<td><a href="/Hasta/Randevularim/@randevu.RandevuId" class="btn btn-success">Randevu Al</a></td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Belirtilen kriterlere uygun randevu bulunamadı.</p>
+}
+
+<script>
+    function randevuAl(randevuId) {
+        // Burada AJAX kullanarak sunucuya istek göndermeli ve randevu durumunu güncellemelisiniz
+        // Örnek AJAX isteği
+        $.ajax({
+            url: '/Hasta/RandevuAl', // Randevu durumu güncellenecek action'ın adresi
+            type: 'POST', // POST isteği
+            data: { randevuId: randevuId }, // Güncellenecek randevu ID'si
+            success: function (response) {
+                // İşlem başarılıysa sayfayı yenileyebilir veya başka bir şey yapabilirsiniz
+                location.reload(); // Sayfayı yenileme örneği
+            },
+            error: function () {
+                // İşlem başarısızsa kullanıcıya bir hata mesajı gösterebilirsiniz
+                alert('Randevu alınamadı. Lütfen tekrar deneyin.');
+            }
+        });
+    }
+</script>

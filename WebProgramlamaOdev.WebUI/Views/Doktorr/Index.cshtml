@@ -28,7 +28,7 @@
                     <td>@item.DoktorAd</td>
                     <td>@item.DoktorSoyad</td>
                     <td>@item.ImageUrl</td>
-                    <td class="color-primary">@item.AnaBilimDaliId</td>
+                    <td class="color-primary">@item.AnaBilimDali?.AnaBilimDaliAd</td>
                     <td><a href="/Doktorr/DeleteDoktorr/@item.DoktorId" class="btn btn-danger">Sil</a></td>
                     <td><a href="/Doktorr/UpdateDoktor/@item.DoktorId" class="btn btn-success">Güncelle</a></td>
                 </tr>

@@ -22,16 +22,6 @@ namespace WebProgramlamaOdev.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(LoginUserDto loginUserDto)
         {
-            //if(ModelState.IsValid)
-            //{
-            //    var result = await _signInManager.PasswordSignInAsync(loginUserDto.Username, loginUserDto.Password, false, false);
-            //    if (result.Succeeded)
-            //    {
-            //        return RedirectToAction("Index", "Profile");
-            //    }
-            //}
-            //return View();
-
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(loginUserDto.Username, loginUserDto.Password, false, false);
@@ -45,12 +35,16 @@ namespace WebProgramlamaOdev.WebUI.Controllers
                     }
                     else if (await _signInManager.UserManager.IsInRoleAsync(user, "Hasta"))
                     {
-                        var hasta = new LoginUserDto
+                        var hasta = new AppUser
                         {
-                            Username = user.UserName
-                            // Görüntülemek istediğiniz diğer özellikleri ekleyin
+                            UserName = user.UserName,
+                            UserTC = user.UserTC
+
                         };
-                        TempData["Username"] = hasta.Username;
+                        TempData["Username"] = hasta.UserName;
+                        TempData["UserTC"] = hasta.UserTC;
+                        HttpContext.Session.SetString("Username", hasta.UserName);
+                        HttpContext.Session.SetString("UserTC", hasta.UserTC);
 
                         return RedirectToAction("Index", "Hasta", hasta); // User paneline yönlendirme
                     }

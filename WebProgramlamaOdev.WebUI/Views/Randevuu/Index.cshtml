@@ -30,8 +30,8 @@
                     <td>@item.RandevuTarih</td>
                     <td>@item.SaatAraligi</td>
                     <td>@item.HastaTC</td>
-                    <td>@item.DoktorId</td>
-                    <td>@item.PoliklinikId</td>
+                    <td>@item.Doktor?.FullName</td>
+                    <td>@item.Poliklinik?.PoliklinikAd</td>
                     <td>@item.Durum</td>
                     <td><a href="/Randevuu/DeleteRandevu/@item.RandevuId" class="btn btn-danger">Sil</a></td>
                     <td><a href="/Randevuu/UpdateRandevu/@item.RandevuId" class="btn btn-success">Güncelle</a></td>

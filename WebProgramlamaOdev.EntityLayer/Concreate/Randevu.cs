@@ -25,6 +25,7 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public Doktor? Doktor { get; set; }
         public string HastaTC { get; set; }
         public bool Durum { get; set; }
-         
+        //public List<Randevu> Randevular { get; set; }
+
     }
 }

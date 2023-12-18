@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Text;
 using WebProgramlamaOdev.BusinessLayer.Abstract;
 using WebProgramlamaOdev.BusinessLayer.Concreate;
+using WebProgramlamaOdev.DataAccessLayer.Concreate;
 using WebProgramlamaOdev.DataAccessLayer.EntityFramework;
 using WebProgramlamaOdev.EntityLayer.Concreate;
 using WebProgramlamaOdev.WebUI.Models.Doktor;
@@ -93,16 +95,19 @@ namespace WebProgramlamaOdev.WebUI.Controllers
         //*********************************************************************************//
 
         private readonly IDoktorService _doktorService;
+        private readonly Context _context;
 
-        public DoktorrController(IDoktorService doktorService)
+        public DoktorrController(IDoktorService doktorService, Context context)
         {
             _doktorService = doktorService;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            var values = _doktorService.TGetList();
-            return View(values);
+            return View(_context.Doktor.Include(c => c.AnaBilimDali).ToList());
+            //var values = _doktorService.TGetList();
+           // return View(values);
         }
         [HttpGet]
         public IActionResult AddDoktorr()

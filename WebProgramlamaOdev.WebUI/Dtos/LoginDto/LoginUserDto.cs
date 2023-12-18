@@ -9,5 +9,6 @@ namespace WebProgramlamaOdev.WebUI.Dtos.LoginDto
         public string Username { get; set; }
         [Required(ErrorMessage = "Şifre giriniz")]
         public string Password { get; set; }
+    
     }
 }

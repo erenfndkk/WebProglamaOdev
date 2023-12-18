@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Data;
 using System.Text;
 using WebProgramlamaOdev.BusinessLayer.Abstract;
+using WebProgramlamaOdev.DataAccessLayer.Concreate;
 using WebProgramlamaOdev.EntityLayer.Concreate;
 using WebProgramlamaOdev.WebUI.Models.Poliklinik;
 using WebProgramlamaOdev.WebUI.Models.Randevu;
@@ -90,22 +92,29 @@ namespace WebProgramlamaOdev.WebUI.Controllers
 
         private readonly IRandevuService _randevuService;
         private readonly IDoktorService _doktorService;
+        private readonly Context _context;
 
-        public RandevuuController(IRandevuService randevuService, IDoktorService doktorService)
+        public RandevuuController(IRandevuService randevuService, IDoktorService doktorService, Context context)
         {
             _randevuService = randevuService;
             _doktorService = doktorService;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            var values = _randevuService.TGetList();
-            return View(values);
+            return View(_context.Randevu.Include(c => c.Doktor).Include(c => c.Poliklinik).ToList());
+            //var values = _randevuService.TGetList(); bu şekilde listelersek doktor ve poliklinik isimleri yerine id leri geliyor.
+            //return View(values);
         }
         [HttpGet]
         public IActionResult AddRandevu()
         {
+            var dbContext = new Context(); // Bu kısmı kendi context sınıfınıza uygun şekilde değiştirebilirsiniz
+            ViewBag.Doctors = dbContext.Doktor.Select(d => new { d.DoktorId, FullName = d.DoktorAd + " " + d.DoktorSoyad }).ToList();
+            ViewBag.Poliklinikler = dbContext.Poliklinik.Select(p => new {p.PoliklinikId, p.PoliklinikAd}).ToList();
             return View();
+            
         }
         [HttpPost]
         public IActionResult AddRandevu(Randevu randevu)

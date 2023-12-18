@@ -1,0 +1,37 @@
+﻿@using System.Data;
+@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model List<Randevu>
+@{
+    ViewData["Title"] = "Randevularim";
+    Layout = "~/Views/Shared/_HastaLayout.cshtml";
+}
+
+<h1>Randevularim</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Randevu ID</th>
+            <th>Randevu Tarih</th>
+            <th>Saat Aralığı</th>
+            <th>Randevu Doktor</th>
+            <th>Randevu Poliklinik</th>
+            <th>Hasta TC</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var randevu in Model)
+        {
+            <tr>
+                <td>@randevu.RandevuId</td>
+                <td>@randevu.RandevuTarih</td>
+                <td>@randevu.SaatAraligi</td>
+                <td>@randevu.Doktor?.FullName</td>
+                <td>@randevu.Poliklinik?.PoliklinikAd</td>
+                <td>@randevu.HastaTC</td>
+                <td>@(randevu.Durum ? "Aktif" : "Pasif")</td>
+            </tr>
+        }
+    </tbody>
+</table>

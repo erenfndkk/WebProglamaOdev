@@ -10,6 +10,14 @@ using WebProgramlamaOdev.EntityLayer.Concreate;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddSession(options =>
+{
+    options.Cookie.Name = "MySessionCookie";
+    options.IdleTimeout = TimeSpan.FromMinutes(10); // Oturumun süresini ayarlayabilirsiniz
+    options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddDbContext<Context>();
 
 builder.Services.AddScoped<IDepartmentDal, EfDepartmentDal>();
@@ -79,6 +87,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession();
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
@@ -91,6 +101,6 @@ app.UseRequestLocalization(localizationOptions);
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
 
 app.Run();
