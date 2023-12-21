@@ -17,10 +17,10 @@ namespace WebProgramlamaOdev.DataAccessLayer.Concreate
             optionsBuilder.UseSqlServer("server=ERMISH\\SQLEXPRESS01;initial catalog=OdevDb3;integrated security=true");
         }
 
-        public DbSet<Admin> Admin { get; set; }
+  
         public DbSet<AnaBilimDali> AnaBilimDali { get; set; }
         public DbSet<Doktor> Doktor { get; set; }
-        public DbSet<Hasta> Hasta { get; set; }
+       
         public DbSet<Poliklinik> Poliklinik { get; set; }
         public DbSet<Randevu> Randevu { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }

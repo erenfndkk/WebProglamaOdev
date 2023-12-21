@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = "MySessionCookie";
-    options.IdleTimeout = TimeSpan.FromMinutes(10); // Oturumun süresini ayarlayabilirsiniz
+    options.IdleTimeout = TimeSpan.FromMinutes(10); 
     options.Cookie.IsEssential = true;
 });
 
@@ -29,24 +29,17 @@ builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<IHomeDal, EfHomeDal>();
 builder.Services.AddScoped<IHomeService, HomeManager>();
 
-builder.Services.AddScoped<IAdminDal, EfAdminDal>();
-builder.Services.AddScoped<IAdminService, AdminManager>();
-
 builder.Services.AddScoped<IAnaBilimDaliDal, EfAnaBilimDaliDal>();
 builder.Services.AddScoped<IAnaBilimDaliService, AnaBilimDaliManager>();
 
 builder.Services.AddScoped<IDoktorDal, EfDoktorDal>();
 builder.Services.AddScoped<IDoktorService, DoktorManager>();
 
-builder.Services.AddScoped<IHastaDal, EfHastaDal>();
-builder.Services.AddScoped<IHastaService, HastaManager>();
-
 builder.Services.AddScoped<IRandevuDal, EfRandevuDal>();
 builder.Services.AddScoped<IRandevuService, RandevuManager>();
 
 builder.Services.AddScoped<IPoliklinikDal, EfPoliklinikDal>();
 builder.Services.AddScoped<IPoliklinikService, PoliklinikManager>();
-
 
 
 builder.Services.AddHttpClient();
@@ -91,7 +84,6 @@ app.UseSession();
 
 app.UseRouting();
 app.UseAuthentication();
-app.UseAuthorization();
 
 app.UseAuthorization();
 var supportedCultures = new[] { "en", "tr" };

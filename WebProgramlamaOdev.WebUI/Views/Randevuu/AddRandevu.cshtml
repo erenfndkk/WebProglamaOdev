@@ -9,7 +9,7 @@
 
 <form method="post">
     <label>Randevu Tarih</label>
-    <input type="datetime" asp-for="RandevuTarih" class="form-control" />
+    <input type="date" asp-for="RandevuTarih" class="form-control" />
     <br />
     <label>Saat Aralığı</label>
     <input type="text" asp-for="SaatAraligi" class="form-control" />
@@ -17,14 +17,14 @@
     <label>Hasta Tc</label>
     <input type="text" asp-for="HastaTC" class="form-control" />
     <br />
-    <label>Doktor</label>
-    <select asp-for="DoktorId" asp-items="@(new SelectList(ViewBag.Doctors, "DoktorId", "FullName"))" class="form-control">
-        <option value="">Doktor Seç</option>
-    </select>
-    <br />
     <label>Poliklinik</label>
     <select asp-for="PoliklinikId" asp-items="@(new SelectList(ViewBag.Poliklinikler, "PoliklinikId", "PoliklinikAd"))" class="form-control">
         <option value="">Poliklinik Seç</option>
+    </select>
+    <br />
+    <label>Doktor</label>
+    <select asp-for="DoktorId" asp-items="@(new SelectList(ViewBag.Doctors, "DoktorId", "FullName"))" class="form-control">
+        <option value="">Doktor Seç</option>
     </select>
     <br />
     <label>Durum</label>
@@ -32,3 +32,4 @@
     <br />
     <button class="btn btn-primary">Randevu Ekle</button>
 </form>
+

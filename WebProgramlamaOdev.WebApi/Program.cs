@@ -19,17 +19,11 @@ builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<IHomeDal, EfHomeDal>();
 builder.Services.AddScoped<IHomeService, HomeManager>();
 
-builder.Services.AddScoped<IAdminDal, EfAdminDal>();
-builder.Services.AddScoped<IAdminService, AdminManager>();
-
 builder.Services.AddScoped<IAnaBilimDaliDal, EfAnaBilimDaliDal>();
 builder.Services.AddScoped<IAnaBilimDaliService, AnaBilimDaliManager>();
 
 builder.Services.AddScoped<IDoktorDal, EfDoktorDal>();
 builder.Services.AddScoped<IDoktorService, DoktorManager>();
-
-builder.Services.AddScoped<IHastaDal, EfHastaDal>();
-builder.Services.AddScoped<IHastaService, HastaManager>();
 
 builder.Services.AddScoped<IRandevuDal, EfRandevuDal>();
 builder.Services.AddScoped<IRandevuService, RandevuManager>();
@@ -39,7 +33,7 @@ builder.Services.AddScoped<IPoliklinikService, PoliklinikManager>();
 
 builder.Services.AddCors(opt =>
 {
-    opt.AddPolicy("OtelApiCors", opts =>
+    opt.AddPolicy("OdevApiCors", opts =>
     {
         opts.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
     });
@@ -54,7 +48,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseCors("OtelApiCors");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -63,6 +57,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("OdevApiCors");
 app.UseAuthorization();
 
 app.MapControllers();

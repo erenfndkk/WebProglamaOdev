@@ -1,10 +1,11 @@
-﻿@model AddDoktorViewModel
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model Doktor
 @{
     ViewData["Title"] = "AddDoktorr";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>AddDoktorr</h1>
+<h3>Doktor Ekle</h3>
 
 <form method="post">
     <label>Doktor Adı</label>
@@ -17,7 +18,23 @@
     <input type="text" asp-for="ImageUrl" class="form-control" />
     <br />
     <label>Ana Bilim Dalı</label>
-    <input type="text" asp-for="AnaBilimDaliId" class="form-control" />
+  @*  <select asp-for="AnaBilimDaliId" asp-items="@(new SelectList(ViewBag.AnaBilimDalis, "AnaBilimDaliId", "AnaBilimDaliAd"))" class="form-control">
+        <option value="">Ana Bilim Dali Seç</option>
+    </select>
+    <br />
+    <label>Poliklinik</label>
+    <select asp-for="PoliklinikId" asp-items="@(new SelectList(ViewBag.Poliklinikkk, "PoliklinikId", "PoliklinikAd"))" class="form-control">
+        <option value="">Poliklinik Seç</option>
+    </select>
+    <br />*@
+    <select asp-for="AnaBilimDaliId" asp-items="@(new SelectList(ViewBag.AnaBilimDalis, "Value", "Text"))" class="form-control">
+        <option value="">Ana Bilim Dali Seç</option>
+    </select>
+    <br />
+    <label>Poliklinik</label>
+    <select asp-for="PoliklinikId" asp-items="@(new SelectList(ViewBag.Poliknikkk, "Value", "Text"))" class="form-control">
+        <option value="">Poliklinik Seç</option>
+    </select>
     <br />
     <button class="btn btn-primary">Doktor Ekle</button>
 </form>

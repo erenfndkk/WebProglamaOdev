@@ -1,23 +1,28 @@
 ﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
 @model List<Doktor>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Doktorlar</h1>
+<h1>@localizer["Doktorlar"]</h1>
+<a asp-controller="Doktorr" asp-action="Index" asp-route-culture="en" class="btn mb-1 btn-rounded btn-outline-info">English</a>
+<a asp-controller="Doktorr" asp-action="Index" asp-route-culture="tr" class="btn mb-1 btn-rounded btn-outline-info">Türkçe</a>
 
 <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Ad</th>
-                <th>Soyad</th>
-                <th>Resim yolu</th>
-                <th>Ana bilim Dalı</th>
-                <th>Sil</th>
-                <th>GÜncelle</th>
+                <th>@localizer["Ad"]</th>
+                <th>@localizer["Soyad"]</th>
+                <th>@localizer["Resim Yolu"]</th>
+                <th>@localizer["Ana Bilim Dalı"]</th>
+                <th>@localizer["Poliklinik"]</th>
+                <th>@localizer["Sil"]</th>
+                <th>@localizer["Güncelle"]</th>
             </tr>
         </thead>
         <tbody>
@@ -29,12 +34,13 @@
                     <td>@item.DoktorSoyad</td>
                     <td>@item.ImageUrl</td>
                     <td class="color-primary">@item.AnaBilimDali?.AnaBilimDaliAd</td>
-                    <td><a href="/Doktorr/DeleteDoktorr/@item.DoktorId" class="btn btn-danger">Sil</a></td>
-                    <td><a href="/Doktorr/UpdateDoktor/@item.DoktorId" class="btn btn-success">Güncelle</a></td>
+                    <td class="color-primary">@item.Poliklinik?.PoliklinikAd</td>
+                    <td><a href="/Doktorr/DeleteDoktorr/@item.DoktorId" class="btn btn-danger">@localizer["Sil"]</a></td>
+                    <td><a href="/Doktorr/UpdateDoktor/@item.DoktorId" class="btn btn-success">@localizer["Güncelle"]</a></td>
                 </tr>
             }
            
         </tbody>
     </table>
-   <a href="/Doktorr/AddDoktorr/" class="btn btn-primary">Yeni Doktor Ekle</a>
+    <a asp-controller="Doktorr" asp-action="AddDoktorr" class="btn btn-primary">@localizer["Yeni Doktor Ekle"]</a>
 </div>

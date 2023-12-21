@@ -52,5 +52,13 @@ namespace WebProgramlamaOdev.WebUI.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            HttpContext.Session.Clear();
+            TempData.Clear();
+
+            return RedirectToAction("Index", "Default"); 
+        }
     }
 }

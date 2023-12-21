@@ -15,8 +15,6 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public DateTime RandevuTarih { get; set; }
         [Required(ErrorMessage = "Randevu saat aralığı gereklidir.")]
         public string SaatAraligi { get; set; }
-        //public string RandevuPoliklinik { get; set; }
-        //public string RandevuDoktor { get; set; }
         public int PoliklinikId { get; set; }
         [JsonIgnore]
         public Poliklinik? Poliklinik { get; set; }
@@ -25,7 +23,6 @@ namespace WebProgramlamaOdev.EntityLayer.Concreate
         public Doktor? Doktor { get; set; }
         public string HastaTC { get; set; }
         public bool Durum { get; set; }
-        //public List<Randevu> Randevular { get; set; }
 
     }
 }

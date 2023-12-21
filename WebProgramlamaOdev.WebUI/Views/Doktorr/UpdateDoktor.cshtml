@@ -5,7 +5,7 @@
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>UpdateDoktor</h1>
+<h1>Doktor Güncelle</h1>
 
 <form method="post">
     <input type="hidden" asp-for="DoktorId" />
@@ -18,8 +18,25 @@
     <label>Resim Yolu</label>
     <input type="text" asp-for="ImageUrl" class="form-control" />
     <br />
-    <label>Ana Bilim Dalı</label>
-    <input type="text" asp-for="AnaBilimDaliId" class="form-control" />
+   @* <label>Ana Bilim Dalı</label>
+    <select asp-for="AnaBilimDaliId" asp-items="@(new SelectList(ViewBag.AnaBilimDali, "AnaBilimDaliId", "AnaBilimDaliAd"))" class="form-control">
+        <option value="">Anabilim Dalı Seç</option>
+    </select>
+    <br />
+    <label>Poliklinik</label>
+    <select asp-for="PoliklinikId" asp-items="@(new SelectList(ViewBag.Poliklinik, "PoliklinikId", "PoliklinikAd"))" class="form-control">
+        <option value="">Poliklinik Seç</option>
+    </select>
+    <br />*@
+    <label>Ana Bilim Dali</label>
+    <select asp-for="AnaBilimDaliId" asp-items="@(new SelectList(ViewBag.AnaBilimDalis, "Value", "Text"))" class="form-control">
+        <option value="">Ana Bilim Dali Seç</option>
+    </select>
+    <br />
+    <label>Poliklinik</label>
+    <select asp-for="PoliklinikId" asp-items="@(new SelectList(ViewBag.Poliknikkk, "Value", "Text"))" class="form-control">
+        <option value="">Poliklinik Seç</option>
+    </select>
     <br />
     <button class="btn btn-primary">Doktoru Güncelle</button>
 </form>

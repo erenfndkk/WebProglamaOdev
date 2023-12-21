@@ -12,7 +12,7 @@ namespace WebProgramlamaOdev.DataAccessLayer.Migrations
                 name: "HastaTC",
                 table: "Randevu",
                 type: "char(11)",
-                nullable: false,
+                nullable: true,
                 defaultValue: "");
 
             migrationBuilder.AddColumn<string>(

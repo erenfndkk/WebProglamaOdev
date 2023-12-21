@@ -28,8 +28,6 @@
                     <td>@randevu.Doktor?.FullName</td>
                     <td>@randevu.Poliklinik?.PoliklinikAd</td>
                     <td><button class="btn btn-primary" onclick="randevuAl(@randevu.RandevuId)">Randevu Al</button></td>
-
-                    @*<td><a href="/Hasta/Randevularim/@randevu.RandevuId" class="btn btn-success">Randevu Al</a></td>*@
                 </tr>
             }
         </tbody>
@@ -50,10 +48,9 @@ else
             data: { randevuId: randevuId }, // Güncellenecek randevu ID'si
             success: function (response) {
                 // İşlem başarılıysa sayfayı yenileyebilir veya başka bir şey yapabilirsiniz
-                location.reload(); // Sayfayı yenileme örneği
+                window.location.href = '/Hasta/Randevularim'; // Sayfayı yenileme örneği
             },
             error: function () {
-                // İşlem başarısızsa kullanıcıya bir hata mesajı gösterebilirsiniz
                 alert('Randevu alınamadı. Lütfen tekrar deneyin.');
             }
         });

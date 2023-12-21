@@ -11,7 +11,6 @@ namespace WebProgramlamaOdev.WebUI.Mapping
     {
         public AutoMappingConfig()
         {
-            CreateMap<CreateNewHastaDto, Hasta>().ReverseMap();
             CreateMap<CreateNewUserDto, AppUser>().ReverseMap();
             CreateMap<LoginUserDto, AppUser>().ReverseMap();
         }

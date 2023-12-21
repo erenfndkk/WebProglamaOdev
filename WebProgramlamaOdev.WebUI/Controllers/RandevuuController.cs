@@ -103,14 +103,14 @@ namespace WebProgramlamaOdev.WebUI.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Randevu.Include(c => c.Doktor).Include(c => c.Poliklinik).ToList());
+            return View(_context.Randevu.Include(c => c.Doktor).Include(c => c.Poliklinik).Where(r => r.Durum == false).ToList());
             //var values = _randevuService.TGetList(); bu şekilde listelersek doktor ve poliklinik isimleri yerine id leri geliyor.
             //return View(values);
         }
         [HttpGet]
         public IActionResult AddRandevu()
         {
-            var dbContext = new Context(); // Bu kısmı kendi context sınıfınıza uygun şekilde değiştirebilirsiniz
+            var dbContext = new Context(); 
             ViewBag.Doctors = dbContext.Doktor.Select(d => new { d.DoktorId, FullName = d.DoktorAd + " " + d.DoktorSoyad }).ToList();
             ViewBag.Poliklinikler = dbContext.Poliklinik.Select(p => new {p.PoliklinikId, p.PoliklinikAd}).ToList();
             return View();
@@ -119,8 +119,17 @@ namespace WebProgramlamaOdev.WebUI.Controllers
         [HttpPost]
         public IActionResult AddRandevu(Randevu randevu)
         {
-            _randevuService.TInsert(randevu);
-            return RedirectToAction("Index");
+            if (randevu.RandevuTarih > DateTime.Now)
+            {
+                _randevuService.TInsert(randevu);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ModelState.AddModelError("RandevuTarih", "Geçmiş bir tarihe randevu eklenemez.");
+                return BadRequest();
+            }
+      
         }
         public IActionResult DeleteRandevu(int id)
         {
@@ -131,6 +140,8 @@ namespace WebProgramlamaOdev.WebUI.Controllers
         [HttpGet]
         public IActionResult UpdateRandevu(int id)
         {
+            ViewBag.Doctors = _context.Doktor.Select(d => new { d.DoktorId, FullName = d.DoktorAd + " " + d.DoktorSoyad }).ToList();
+            ViewBag.Poliklinikler = _context.Poliklinik.Select(p => new { p.PoliklinikId, p.PoliklinikAd }).ToList();
             var value = _randevuService.TGetByID(id);
             return View(value);
         }
@@ -142,5 +153,14 @@ namespace WebProgramlamaOdev.WebUI.Controllers
             return RedirectToAction("Index");
 
         }
+    //    [HttpGet]
+    //    public IActionResult GetDoctorsByPoliklinikId(int poliklinikId)
+    //    {
+    //        ViewBag.doctors = _context.Doktor.Where(d => d.PoliklinikId == poliklinikId)
+    //                                      .Select(d => new { value = d.DoktorId, text = d.FullName })
+    //                                      .ToList();
+
+    //        return View();
+    //    }
     }
 }

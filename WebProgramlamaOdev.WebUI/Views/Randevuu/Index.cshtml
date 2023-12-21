@@ -1,44 +1,49 @@
 ﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
 @model List<Randevu>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<h3>@localizer["Randevular"]</h3>
+
+<a asp-controller="Randevuu" asp-action="Index" asp-route-culture="en" class="btn mb-1 btn-rounded btn-outline-info">English</a>
+<a asp-controller="Randevuu" asp-action="Index" asp-route-culture="tr" class="btn mb-1 btn-rounded btn-outline-info">Türkçe</a>
 
 <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Randevu Tarih</th>
-                <th>Saat Aralığı</th>
-                <th>Hasta TC</th>
-                <th>Doktor Id</th>
-                <th>Poliklinik Id</th>
-                <th>Durum</th>
-                <th>Sil</th>
-                <th>GÜncelle</th>
+                <th>@localizer["Randevu Tarih"]</th>
+                <th>@localizer["Saat"]</th>
+                <th>@localizer["Hasta TC"]</th>
+                <th>@localizer["Doktor"] </th>
+                <th>@localizer["Poliklinik"] </th>
+                <th>@localizer["Durum"]</th>
+                <th>@localizer["Sil"]</th>
+                <th>@localizer["Güncelle"]</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <th>@item.RandevuId</th>
-                    <td>@item.RandevuTarih</td>
+                    <td>@item.RandevuId</td>
+                    <td>@item.RandevuTarih.ToString("dd/MM/yyyy")</td>
                     <td>@item.SaatAraligi</td>
                     <td>@item.HastaTC</td>
                     <td>@item.Doktor?.FullName</td>
                     <td>@item.Poliklinik?.PoliklinikAd</td>
                     <td>@item.Durum</td>
-                    <td><a href="/Randevuu/DeleteRandevu/@item.RandevuId" class="btn btn-danger">Sil</a></td>
-                    <td><a href="/Randevuu/UpdateRandevu/@item.RandevuId" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Randevuu/DeleteRandevu/@item.RandevuId" class="btn btn-danger">@localizer["Sil"]</a></td>
+                    <td><a href="/Randevuu/UpdateRandevu/@item.RandevuId" class="btn btn-success">@localizer["Güncelle"]</a></td>
                 </tr>
             }
 
         </tbody>
     </table>
-    <a href="/Randevuu/AddRandevu/" class="btn btn-primary">Yeni Randevu Ekle</a>
+    <a href="/Randevuu/AddRandevu/" class="btn btn-primary">@localizer["Yeni Randevu Ekle"]</a>
 </div>

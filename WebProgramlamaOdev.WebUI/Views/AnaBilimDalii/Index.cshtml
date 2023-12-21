@@ -1,21 +1,25 @@
 ﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
 @model List<AnaBilimDali>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<h1>Ana Bilim Dalları</h1>
+<h1>@localizer["Ana Bilim Dalları"]</h1>
+<a asp-controller="AnaBilimDalii" asp-action="Index" asp-route-culture="en" class="btn mb-1 btn-rounded btn-outline-info">English</a>
+<a asp-controller="AnaBilimDalii" asp-action="Index" asp-route-culture="tr" class="btn mb-1 btn-rounded btn-outline-info">Türkçe</a>
+
 
 <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Ad</th>
+                <th>@localizer["Ad"]</th>
                 
-                <th>Sil</th>
-                <th>GÜncelle</th>
+                <th>@localizer["Sil"]</th>
+                <th>@localizer["Güncelle"]</th>
             </tr>
         </thead>
         <tbody>
@@ -25,11 +29,11 @@
                     <th>@item.AnaBilimDaliId</th>
                     <td>@item.AnaBilimDaliAd</td>
 
-                    <td><a href="/AnaBilimDalii/DeleteAnaBilimDali/@item.AnaBilimDaliId" class="btn btn-danger">Sil</a></td>
-                    <td><a href="/AnaBilimDalii/UpdateAnaBilimDali/@item.AnaBilimDaliId" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/AnaBilimDalii/DeleteAnaBilimDali/@item.AnaBilimDaliId" class="btn btn-danger">@localizer["Sil"]</a></td>
+                    <td><a href="/AnaBilimDalii/UpdateAnaBilimDali/@item.AnaBilimDaliId" class="btn btn-success">@localizer["Güncelle"]</a></td>
                 </tr>
             }
         </tbody>
     </table>
-    <a href="/AnaBilimDalii/AddAnaBilimDali/" class="btn btn-primary">Yeni AnaBilimDali Ekle</a>
+    <a href="/AnaBilimDalii/AddAnaBilimDali/" class="btn btn-primary">@localizer["Yeni Ana Bilim Dalı Ekle"]</a>
 </div>

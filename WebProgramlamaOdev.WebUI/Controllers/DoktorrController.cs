@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
@@ -105,13 +107,27 @@ namespace WebProgramlamaOdev.WebUI.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Doktor.Include(c => c.AnaBilimDali).ToList());
+            return View(_context.Doktor.Include(c => c.AnaBilimDali).Include(p => p.Poliklinik).ToList());
             //var values = _doktorService.TGetList();
            // return View(values);
         }
         [HttpGet]
         public IActionResult AddDoktorr()
-        {
+        { 
+            //ViewBag.AnaBilimDalis = _context.AnaBilimDali.Select(a => new {a.AnaBilimDaliId, a.AnaBilimDaliAd}).ToList();
+            //ViewBag.Poliknikkk = _context.Poliklinik.Select(a => new {a.PoliklinikId, a.PoliklinikAd}).ToList();
+
+            ViewBag.AnaBilimDalis = _context.AnaBilimDali.Select(a => new SelectListItem
+            {
+                Value = a.AnaBilimDaliId.ToString(),
+                Text = a.AnaBilimDaliAd
+            }).ToList();
+
+            ViewBag.Poliknikkk = _context.Poliklinik.Select(a => new SelectListItem
+            {
+                Value = a.PoliklinikId.ToString(),
+                Text = a.PoliklinikAd
+            }).ToList();
             return View();
         }
         [HttpPost]
@@ -131,6 +147,20 @@ namespace WebProgramlamaOdev.WebUI.Controllers
         [HttpGet]
         public IActionResult UpdateDoktor(int id)
         {
+            //ViewBag.AnaBilimDalis = _context.AnaBilimDali.Select(a => new { a.AnaBilimDaliId, a.AnaBilimDaliAd }).ToList();
+            //ViewBag.Poliknik = _context.Poliklinik.Select(a => new { a.PoliklinikId, a.PoliklinikAd }).ToList();
+
+            ViewBag.AnaBilimDalis = _context.AnaBilimDali.Select(a => new SelectListItem
+            {
+                Value = a.AnaBilimDaliId.ToString(),
+                Text = a.AnaBilimDaliAd
+            }).ToList();
+
+            ViewBag.Poliknikkk = _context.Poliklinik.Select(a => new SelectListItem
+            {
+                Value = a.PoliklinikId.ToString(),
+                Text = a.PoliklinikAd
+            }).ToList();
             var value = _doktorService.TGetByID(id);
             return View(value);
         }

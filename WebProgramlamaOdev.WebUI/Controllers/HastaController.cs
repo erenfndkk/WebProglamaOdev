@@ -34,19 +34,11 @@ namespace WebProgramlamaOdev.WebUI.Controllers
         }
         public IActionResult Randevularim()
         {
-            var dbContext = new Context(); 
-
-            var randevular = dbContext.Randevu
+            var loggedInUserTC = HttpContext.Session.GetString("UserTC");
+            var randevular = _context.Randevu
                 .Include(r => r.Doktor)
                 .Include(r => r.Poliklinik)
-                .Join(
-                    dbContext.Users,
-                    randevu => randevu.HastaTC,
-                    user => user.UserTC,
-                    (randevu, user) => new { Randevu = randevu, User = user }
-                )
-                .Where(joinResult => joinResult.Randevu.HastaTC == joinResult.User.UserTC)
-                .Select(joinResult => joinResult.Randevu)
+                .Where(r => r.HastaTC == loggedInUserTC)
                 .ToList();
 
             return View(randevular);
@@ -83,7 +75,6 @@ namespace WebProgramlamaOdev.WebUI.Controllers
 
             if (randevu != null)
             {
-                //var loggedInUserTC = User.Claims.FirstOrDefault(c => c.Type == "UserTC")?.Value;
                 var loggedInUserTC = HttpContext.Session.GetString("UserTC"); 
                 if (!string.IsNullOrEmpty(loggedInUserTC))
                 {
@@ -92,13 +83,11 @@ namespace WebProgramlamaOdev.WebUI.Controllers
 
                     _context.SaveChanges();
 
-                    return Ok(); // 200 OK yanıtı döndür
+                    return Ok();
                 }
             }
-
-            return BadRequest(); // 400 Bad Request yanıtı döndür
+            return BadRequest();
         }
-        //[HttpGet]
         public IActionResult ListRandevular(int poliklinikId, int doktorId)
         {
             var randevular = _context.Randevu
@@ -109,10 +98,5 @@ namespace WebProgramlamaOdev.WebUI.Controllers
 
             return View(randevular);
         }
-        //[HttpPost]
-        //public IActionResult ListRandevular()
-        //{
-        //    return View();
-        //}
     }
 }

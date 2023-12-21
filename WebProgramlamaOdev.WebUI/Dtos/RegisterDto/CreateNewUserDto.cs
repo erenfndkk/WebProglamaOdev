@@ -12,6 +12,8 @@ namespace WebProgramlamaOdev.WebUI.Dtos.RegisterDto
         public string Username { get; set; }
         [Required(ErrorMessage = "Mail Alanı gereklidir")]
         public string Mail { get; set; }
+        [Required(ErrorMessage = "TC Alanı gereklidir")]
+        public string UserTC { get; set; }
         [Required(ErrorMessage = "Şifre Alanı gereklidir")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Şifre tekrar Alanı gereklidir")]

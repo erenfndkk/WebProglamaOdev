@@ -6,5 +6,6 @@
         public string DoktorSoyad { get; set; }
         public string ImageUrl { get; set; }
         public int AnaBilimDaliId { get; set; }
+        public int PoliklinikId { get; set; }
     }
 }

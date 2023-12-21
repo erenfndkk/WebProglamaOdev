@@ -31,7 +31,8 @@ namespace WebProgramlamaOdev.WebUI.Controllers
                 Name = createNewUserDto.Name,
                 Surname = createNewUserDto.Surname,
                 Email = createNewUserDto.Mail,
-                UserName = createNewUserDto.Username
+                UserName = createNewUserDto.Username,
+                UserTC = createNewUserDto.UserTC
             };
             var result = await _userManager.CreateAsync(user, createNewUserDto.Password);
             if (result.Succeeded) 
