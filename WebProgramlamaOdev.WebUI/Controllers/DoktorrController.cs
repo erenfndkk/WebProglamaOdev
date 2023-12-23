@@ -107,7 +107,8 @@ namespace WebProgramlamaOdev.WebUI.Controllers
 
         public IActionResult Index()
         {
-            return View(_context.Doktor.Include(c => c.AnaBilimDali).Include(p => p.Poliklinik).ToList());
+            var values = _context.Doktor.Include(c => c.AnaBilimDali).Include(p => p.Poliklinik).ToList();
+            return View(values);
             //var values = _doktorService.TGetList();
            // return View(values);
         }

@@ -25,7 +25,7 @@ namespace WebProgramlamaOdev.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<DepartmentViewModel>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<Department>>(jsonData);
                 return View(values);
             }
             return View();
@@ -36,7 +36,7 @@ namespace WebProgramlamaOdev.WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> AddDepartment(AddDepartmentViewModel addDepartmentViewModel)
+        public async Task<IActionResult> AddDepartment(Department addDepartmentViewModel)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(addDepartmentViewModel);
@@ -66,14 +66,14 @@ namespace WebProgramlamaOdev.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateDepartmentVİewModel>(jsonData);
+                var values = JsonConvert.DeserializeObject<Department>(jsonData);
                 return View(values);
             }
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateDepartment(UpdateDepartmentVİewModel model)
+        public async Task<IActionResult> UpdateDepartment(Department model)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(model);

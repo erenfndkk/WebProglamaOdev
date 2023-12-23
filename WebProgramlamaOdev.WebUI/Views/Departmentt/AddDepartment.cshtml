@@ -1,8 +1,27 @@
-﻿
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model Department
 @{
     ViewData["Title"] = "AddDepartment";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
 <h3>Departman Ekle</h3>
+
+<form method="post">
+    <label>Hizmit icon linki</label>
+    <input type="text" asp-for="Icon" class="form-control" />
+    <span asp-validation-for="Icon" class="text-danger"></span>
+    <br />
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+    <br />
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <span asp-validation-for="Description" class="text-danger"></span>
+    <br />
+
+    <button class="btn btn-primary">Department Ekle</button>
+</form>
+
 

@@ -20,12 +20,10 @@ namespace WebProgramlamaOdev.DataAccessLayer.Concreate
   
         public DbSet<AnaBilimDali> AnaBilimDali { get; set; }
         public DbSet<Doktor> Doktor { get; set; }
-       
         public DbSet<Poliklinik> Poliklinik { get; set; }
         public DbSet<Randevu> Randevu { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Department> Departments { get; set; }
-        public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<Home> Homes { get; set; }
 
 

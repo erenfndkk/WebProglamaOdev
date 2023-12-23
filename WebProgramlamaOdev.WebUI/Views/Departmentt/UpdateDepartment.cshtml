@@ -1,4 +1,5 @@
-﻿
+﻿@using WebProgramlamaOdev.EntityLayer.Concreate;
+@model Department
 @{
     ViewData["Title"] = "UpdateDepartment";
     Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
@@ -6,3 +7,20 @@
 
 <h3>Departman Güncelle</h3>
 
+<form method="post">
+    <input type="hidden" asp-for="DepartmentID" />
+    <label>Servis ikon linki</label>
+    <input type="text" asp-for="Icon" class="form-control" />
+    <span asp-validation-for="Icon" class="text-info"></span>
+    <br />
+    <label>Başlık</label>
+    <input type="text" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-info"></span>
+    <br />
+    <label>Açıklama</label>
+    <input type="text" asp-for="Description" class="form-control" />
+    <span asp-validation-for="Description" class="text-info"></span>
+    <br />
+
+    <button class="btn btn-Success">Department Güncelle</button>
+</form>
